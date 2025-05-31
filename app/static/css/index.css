@@ -1,0 +1,46 @@
+/* ---------------------------------------divs--------------------------------------- */
+
+.vertical-bar{
+    width: 1px;
+    height: 39px;
+    background-color: #d3d3ce;
+    margin: auto 0;
+}
+
+/* ---------------------------------------input/forms--------------------------------------- */
+
+form {
+    display: flex;
+    width: 50%;
+    height: 40px;
+    box-sizing: border-box;
+    background-color: #fbfbf4;
+    margin: auto 30px ;
+    border-radius: 10px;
+}
+
+input[type="text"] {
+    height: 40px;
+    margin: 0px;
+    width: 90%;
+    border-radius: 10px 0 0 10px;
+    border: 0;
+    background-color: #fbfbf4;
+    padding: 0 0 0 10px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(139, 191, 102, 0.5)inset;
+}
+
+/* ---------------------------------------button--------------------------------------- */
+
+.button-search {
+    height: 40px;
+    margin: auto 0px;
+    width: 10%;
+    border-radius: 0 10px 10px 0;
+    border: 0;
+    background-color: #fbfbf4;
+}

@@ -1,0 +1,93 @@
+/*
+#3A5D1F
+
+#8CBF66
+
+#fbfbf4
+
+#856F63
+
+#3d3029 
+*/
+/* ---------------------------------------Divs--------------------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbf4;
+}
+
+main {
+    margin-top: 100px;
+    height: 100vh;
+}
+
+
+/* ---------------------------------------Header--------------------------------------- */
+
+header {
+    background-color: #8CBF66;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+}
+
+.user-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 15px;
+    width: fit-content;
+    gap: 10px;
+    height: 100%;
+}
+
+/* ---------------------------------------Imgs--------------------------------------- */
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.search-icon {
+    width: 30px;
+    height: 30px;
+    margin: auto 0;
+}
+
+/* ---------------------------------------Text/Font--------------------------------------- */
+
+@font-face {
+    font-family: "roboto";
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+* {
+    font-family: "roboto", sans-serif;
+}
+h1 {
+    color: #fbfbf4;
+    width: fit-content;
+    height: fit-content;
+}
+
+/* ---------------------------------------button--------------------------------------- */
+
+button{
+    width: fit-content;
+    height: 50px;
+    background-color: #3d3029;
+    border: 0;
+    padding: 0 10px;
+    border-radius: 10px;
+    color: #fbfbf4;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0 auto;
+}
