@@ -1,0 +1,145 @@
+/* ---------------------------------------Divs--------------------------------------- */
+
+.left-section {
+    width: 44.75%;
+    height: 720px;
+    overflow: hidden;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    background-image: url('/app/static/img/register_background_long_3.png');
+    background-size: cover;
+    background-position: center; 
+    top: 0;
+} 
+
+.left-section-content {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 40px 20px 40px ;
+    /* background-color:rgb(82, 82, 82, 0.75) ; */
+    color: #fbfbf4;
+}
+
+.left-section-content p {
+    text-indent: 20px;
+    margin: 0;
+}
+
+.left-section-content h2 {
+    color: #fbfbf4 !important;
+}
+
+
+.right-section {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: #fbfbf4;
+}
+
+.form-container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0 auto auto 160px;
+}
+
+.telephone-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: start;
+}
+
+.telephone-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.vertical-bar {
+    width: 0.25%;
+    height: 100%;
+    background-color: #525252;
+    background: linear-gradient(90deg, #3b3f42, #fbfbf4);
+
+}
+
+/* ---------------------------------------Imgs--------------------------------------- */
+
+.left-section img.login-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block; 
+}   
+
+/* ---------------------------------------text--------------------------------------- */
+
+h2 {
+    font-size: 1.5rem;
+    color: #3d3029;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------form/input--------------------------------------- */
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(139, 191, 102, 0.5) inset;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="tel"] {
+    width: 80%;
+    border-radius: 0 5px 5px 0;
+    margin: auto 0;
+}
+
+select {
+    width: 20%;
+    height: 50px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #3d3029;
+    padding: 0 10px;
+    font-size: 1.1em;
+    background-color: #fbfbf4;
+    color: #757575;
+}
+
+/* ---------------------------------------button--------------------------------------- */
+
+.submit-button {
+    width: 100%;
+    height: 50px;
+    background-color: #3d3029;
+    border: 0;
+    padding: 0 10px;
+    border-radius: 10px;
+    color: #fbfbf4;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
