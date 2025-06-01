@@ -11,17 +11,17 @@
 */
 /* ---------------------------------------Divs--------------------------------------- */
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #fbfbf4;
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 main {
-    margin-top: 100px;
-    height: 100vh;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  margin-top: 100px;
 }
-
 
 /* ---------------------------------------Header--------------------------------------- */
 
@@ -71,12 +71,20 @@ header {
 * {
     font-family: "roboto", sans-serif;
 }
+
 h1 {
     color: #fbfbf4;
     width: fit-content;
     height: fit-content;
 }
 
+label{
+    color: #3d3029;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: fit-content;
+    height: fit-content;
+}
 /* ---------------------------------------button--------------------------------------- */
 
 button{
@@ -90,4 +98,25 @@ button{
     font-size: 1.1em;
     font-weight: 600;
     margin: 0 auto;
+}
+
+/* ---------------------------------------input/forms--------------------------------------- */
+
+form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
+input {
+    width: calc(100% - 20px);
+    height: 48.4px;
+    border-radius: 5px;
+    border: 1px solid #3d3029;
+    padding: 0 10px;
+    margin: 10px 0px;
+    font-size: 1.1em;
+    background-color: #fbfbf4;
 }

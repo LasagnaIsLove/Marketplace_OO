@@ -17,6 +17,9 @@ form {
     background-color: #fbfbf4;
     margin: auto 30px ;
     border-radius: 10px;
+    flex-direction: row;
+    align-items: center;
+    gap: 0px;
 }
 
 input[type="text"] {
@@ -31,7 +34,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
     outline: none;
-    box-shadow: 0 0 10px rgba(139, 191, 102, 0.5)inset;
+    box-shadow: 0 0 5px rgba(139, 191, 102, 0.5)inset;
 }
 
 /* ---------------------------------------button--------------------------------------- */
