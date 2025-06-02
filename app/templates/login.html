@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/login.css" />
+    <link rel="icon" href="../static/img/icon.ico" type="image/ico" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <div style="width: fit-content; display: flex">
+        <img src="../static/img/logo.png" alt="Site logo" class="logo" />
+        <h1
+          style="
+            width: 180px;
+            height: 75px;
+            margin: 12.5px 0px;
+            text-align: start;
+          "
+        >
+          Marketplace digital
+        </h1>
+      </div>
+      <div class="user-options">
+        <a href="/"><button>Voltar</button></a>
+      </div>
+    </header>
+    <main>
+      <section class="login-section">
+        <form action="/login" method="post">
+          <h2 style="margin: 30px auto 10px auto">Entrar para o Marketplace</h2>
+          <label for="email">E-mail</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Exemplo@gmail.com"
+            required
+          />
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+            required
+          />
+          <p style="margin: 0" id="msg-error"></p>
+          {% if error %}
+          <p>{{ error }}</p>
+          {% endif %}
+          <button type="submit" id="btn-submit" disabled>Entrar</button>
+          <div class="horizontal-bar"></div>
+          <p style="margin: auto auto 30px auto">
+            Novo por aqui? <a href="/register">Cria sua conta</a>
+          </p>
+        </form>
+      </section>
+    </main>
+    <script src="../static/js/login.js"></script>
+  </body>
+</html>
