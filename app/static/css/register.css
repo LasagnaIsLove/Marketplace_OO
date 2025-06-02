@@ -2,14 +2,14 @@
 
 .left-section {
     width: 44.75%;
-    height: 720px;
+    height: 770px;
     overflow: hidden;
     display: flex; 
     flex-direction: column;
     align-items: center;
     margin: 0;
     overflow: hidden;
-    background-image: url('/app/static/img/register_background_long_3.png');
+    background-image: url('/static/img/register_background_long_3.png');
     background-size: cover;
     background-position: center; 
     top: 0;
@@ -140,6 +140,5 @@ select {
     color: #fbfbf4;
     font-size: 1.1em;
     font-weight: 600;
-    margin-top: 20px;
     margin-bottom: 10px;
 }
