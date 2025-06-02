@@ -18,8 +18,9 @@ class Database:
         
     def save(self, data, path):
         if not os.path.exists(path):
-            print(f"Caminho para {path} não encontrado.")
-            return False
+            print(f"Caminho {path} não encontrado, criando novo banco de dados.")
+            self.create_database(os.path.dirname(path), os.path.basename(path).split('.')[0])
+            
         
         with open(path, 'w') as f:
             json.dump(data, f, indent=4)
@@ -29,10 +30,17 @@ class Database:
         
     def load(self, path):
         if not os.path.exists(path):
-            print(f"Caminho para {path} não encontrado.")
-            return False
+            print(f"Caminho {path} não encontrado, criando novo banco de dados.")
+            self.create_database(os.path.dirname(path), os.path.basename(path).split('.')[0])
+            data = []
         
-        with open(path, 'r') as f:
-            data = json.load(f)
+        else:
+            print(f"Carregando dados de {path}.") 
+            with open(path, 'r') as f: 
+                try:
+                    data = json.load(f)
+                except:
+                    print("data não encontrada, criando lista vazia...")
+                    data = []
             
         return data
