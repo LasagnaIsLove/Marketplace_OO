@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/profile.css" />
+    <link rel="icon" href="../static/img/icon.ico" type="image/ico" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <div style="width: fit-content; display: flex">
+        <img src="../static/img/logo.png" alt="Site logo" class="logo" />
+        <h1
+          style="
+            width: 180px;
+            height: 75px;
+            margin: 12.5px 0px;
+            text-align: start;
+          "
+        >
+          Marketplace digital
+        </h1>
+      </div>
+      <div class="user-options">
+        <a href="/"><button>Voltar</button></a>
+      </div>
+    </header>
+    <main>
+        <section class="left-section">
+            <img src="../static/img/profile.png" alt="Foto de perfil" class="profile">
+            <p class="name">{{ session["user"] }}</p>
+            <a href="/config"><button class="profile-btn">Editar perfil</button></a>
+            <a href="/history"><button class="profile-btn">Ver historico</button></a>
+            <a href="/logout"><button class="profile-btn">logout</button></a>
+        </section>
+        <section class="right-section">
+            
+        </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+/* ---------------------------------------divs--------------------------------------- */
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: calc(100% - 100px);
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.profile {
+    width: 75% !important;
+    height: auto !important;
+}
+
+/* ---------------------------------------button--------------------------------------- */
+
+.profile-btn {
+    width: 80% !important;
+    margin: 10px auto;
+}
+
+/* ---------------------------------------text--------------------------------------- */
+
+a {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    text-decoration: none;
+}
+
+.name {
+    font-size: 1.5em;
+    margin-top: 0;
+}
