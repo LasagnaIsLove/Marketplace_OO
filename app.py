@@ -12,14 +12,19 @@ def index():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
-    # if session["user"]:
-    #     return redirect(url_for("dashboard"))
+    if "user" in session:
+        return redirect(url_for("index"))
     
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        name = request.form.get("name")
+        name = request.form.get("name").title()
         number = str(request.form.get("ddd")) + " " + str(request.form.get("phone"))
+        if Search().search_email(email):
+            print("Email já registrado.")
+            return render_template("register.html", error="Email já cadastrado")
+        
+        print("Criando conta...")
         Client(email, password, name, number).create_user()
         return redirect(url_for("login"))
     
@@ -27,8 +32,8 @@ def register():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    # if session["user"]:
-    #     return redirect(url_for("dashboard"))
+    if "user" in session:
+        return redirect(url_for("index"))
     
     if request.method == "POST":
         email = request.form.get("email")
@@ -46,6 +51,18 @@ def login():
             
     
     return render_template("login.html")
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    if not "user" in session:
+        return redirect(url_for("login"))
+    
+    return render_template("profile.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.run(debug=True)
