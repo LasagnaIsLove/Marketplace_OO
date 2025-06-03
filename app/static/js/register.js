@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn_submit = document.getElementById("btn-submit");
-  const error_Msg = document.getElementById("error-msg");
+
+  const error_email = document.getElementById("error-email");
+  const error_password = document.getElementById("error-password");
+  const error_confirm_password = document.getElementById(
+    "error-confirm-password"
+  );
+
+  const error_name = document.getElementById("error-name");
+  const error_phone = document.getElementById("error-phone");
 
   const email = document.getElementById("email");
 
@@ -16,43 +24,60 @@ document.addEventListener("DOMContentLoaded", () => {
     const is_valid = email_regex.test(email.value.trim());
 
     if (!is_valid) {
-      error_Msg.textContent = "Email invalido";
+      error_email.textContent = "Email invalido";
       return true;
     } else {
-      error_Msg.textContent = "";
+      error_email.textContent = "";
       return false;
     }
   }
 
   function password_validation() {
     if (!password.value.trim()) {
-      error_Msg.textContent = "As senhas precisam ser preenchidas";
+      error_password.textContent = "As senhas precisam ser preenchidas";
       return true;
     } else if (password.value !== confirm_password.value) {
-      error_Msg.textContent = "As senhas não coincidem";
+      error_password.textContent = "As senhas não coincidem";
+      error_confirm_password.textContent = "As senhas não coincidem";
       return true;
     } else {
-      error_Msg.textContent = "";
+      error_password.textContent = "";
+      error_confirm_password.textContent = "";
+      return false;
+    }
+  }
+
+  function password_confirm_validation() {
+    if (!confirm_password.value.trim()) {
+      error_confirm_password.textContent = "As senhas precisam ser preenchidas";
+      return true;
+    } else if (password.value !== confirm_password.value) {
+      error_password.textContent = "As senhas não coincidem";
+      error_confirm_password.textContent = "As senhas não coincidem";
+      return true;
+    } else {
+      error_password.textContent = "";
+      error_confirm_password.textContent = "";
       return false;
     }
   }
 
   function name_validation() {
     if (!name.value.trim()) {
-      error_Msg.textContent = "O nome precisa ser preenchido";
+      error_name.textContent = "O nome precisa ser preenchido";
       return true;
     } else {
-      error_Msg.textContent = "";
+      error_name.textContent = "";
       return false;
     }
   }
 
   function ddd_validation() {
     if (!ddd.value.trim()) {
-      error_Msg.textContent = "Escolha um ddd";
+      error_phone.textContent = "Escolha um ddd";
       return true;
     } else {
-      error_Msg.textContent = "";
+      error_phone.textContent = "";
       return false;
     }
   }
@@ -60,13 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function number_validation() {
     const num_regex = /^\d{10,11}$/;
     const is_valid = num_regex.test(number.value.trim());
-    console.log(is_valid);
 
     if (!is_valid) {
-      error_Msg.textContent = "Número invalido";
+      error_phone.textContent = "Número invalido";
       return true;
     } else {
-      error_Msg.textContent = "";
+      error_phone.textContent = "";
       return false;
     }
   }
@@ -76,22 +100,110 @@ document.addEventListener("DOMContentLoaded", () => {
       !(
         email_validation() ||
         password_validation() ||
+        password_confirm_validation() ||
         name_validation() ||
         ddd_validation() ||
         number_validation()
       )
     ) {
       btn_submit.disabled = false;
+      console.log("habilitado");
     } else {
       btn_submit.disabled = true;
+      console.log("desabilitado");
     }
   }
 
-  email.addEventListener("blur", validation);
-  password.addEventListener("blur", validation);
-  confirm_password.addEventListener("blur", validation);
-  name.addEventListener("blur", validation);
-  ddd.addEventListener("change", validation);
-  number.addEventListener("blur", validation);
+  let email_is_valid = false;
+  let password_is_valid = false;
+  let confirm_password_is_valid = false;
+  let name_is_valid = false;
+  let ddd_is_valid = false;
+  let number_is_valid = false;
+
+  email.addEventListener("blur", () => {
+    email_validation();
+    email_is_valid = true;
+    if (
+      email_is_valid &&
+      password_is_valid &&
+      confirm_password_is_valid &&
+      name_is_valid &&
+      ddd_is_valid &&
+      number_is_valid
+    ) {
+      validation();
+    }
+  });
+  password.addEventListener("blur", () => {
+    password_validation();
+    password_is_valid = true;
+    if (
+      email_is_valid &&
+      password_is_valid &&
+      confirm_password_is_valid &&
+      name_is_valid &&
+      ddd_is_valid &&
+      number_is_valid
+    ) {
+      validation();
+    }
+  });
+  confirm_password.addEventListener("blur", () => {
+    password_confirm_validation();
+    confirm_password_is_valid = true;
+    if (
+      email_is_valid &&
+      password_is_valid &&
+      confirm_password_is_valid &&
+      name_is_valid &&
+      ddd_is_valid &&
+      number_is_valid
+    ) {
+      validation();
+    }
+  });
+  name.addEventListener("blur", () => {
+    name_validation();
+    name_is_valid = true;
+    if (
+      email_is_valid &&
+      password_is_valid &&
+      confirm_password_is_valid &&
+      name_is_valid &&
+      ddd_is_valid &&
+      number_is_valid
+    ) {
+      validation();
+    }
+  });
+  ddd.addEventListener("change", () => {
+    ddd_validation();
+    ddd_is_valid = true;
+    if (
+      email_is_valid &&
+      password_is_valid &&
+      confirm_password_is_valid &&
+      name_is_valid &&
+      ddd_is_valid &&
+      number_is_valid
+    ) {
+      validation();
+    }
+  });
+  number.addEventListener("blur", () => {
+    number_validation();
+    number_is_valid = true;
+    if (
+      email_is_valid &&
+      password_is_valid &&
+      confirm_password_is_valid &&
+      name_is_valid &&
+      ddd_is_valid &&
+      number_is_valid
+    ) {
+      validation();
+    }
+  });
   btn_submit.disabled = true;
 });

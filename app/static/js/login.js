@@ -34,18 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  let emailBlurred = false;
-  let passwordBlurred = false;
+  let email_is_valid = false;
+  let password_is_valid = false;
 
   email.addEventListener("blur", () => {
-    emailBlurred = true;
+    email_is_valid = true;
     email_validation();
+    if (email_is_valid && password_is_valid) {
+      validation();
+    }
   });
 
   password.addEventListener("blur", () => {
-    passwordBlurred = true;
+    password_is_valid = true;
     password_validation();
-    if (emailBlurred && passwordBlurred) {
+    if (email_is_valid && password_is_valid) {
       validation();
     }
   });
