@@ -40,10 +40,14 @@
           />
         </button>
       </form>
+      {% if not session["user"] %}
       <div class="user-options">
         <a href="/login"><button>Entrar</button></a>
         <a href="/register"><button>Cadastrar</button></a>
       </div>
+      {% else %}
+      <a href="/profile"><img src="../static/img/profile.png" alt="Perfil de usuario" class="profile"></a>
+      {% endif %}
     </header>
     <main>
       <section></section>
