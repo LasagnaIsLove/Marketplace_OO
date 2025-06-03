@@ -24,9 +24,9 @@ class Client(User):
         
     def generate_code(self):
         temp_list = []
-        for i in self.users:
-            if i[0] == 'C':
-                temp_list.append(i)
+        for u in self.users:
+            if u["code"][0] == 'C':
+                temp_list.append(u["code"])
                 
         temp_list.sort()
 
@@ -53,9 +53,9 @@ class Admin(User):
         
     def generate_code(self):
         temp_list = []
-        for i in self.users:
-            if i[0] == 'A':
-                temp_list.append(i)
+        for u in self.users:
+            if u["code"][0] == 'A':
+                temp_list.append(u["code"])
                 
         temp_list.sort()
 
