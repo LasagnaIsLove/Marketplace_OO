@@ -11,7 +11,7 @@
 */
 /* ---------------------------------------Divs--------------------------------------- */
 
-html, body {
+body {
   height: 100%;
   margin: 0;
 }
@@ -19,7 +19,7 @@ html, body {
 main {
   display: flex;
   width: 100%;
-  height: fit-content;
+  height: 100%;
   margin-top: 100px;
 }
 
@@ -62,6 +62,13 @@ header {
     margin: auto 0;
 }
 
+.profile {
+    width: auto;
+    height: 100%;
+    margin: 0 10px;
+
+}
+
 /* ---------------------------------------Text/Font--------------------------------------- */
 
 @font-face {
@@ -86,6 +93,10 @@ label{
     height: fit-content;
 }
 
+.error {
+    color: #a20000;
+    margin: 0;
+}
 /* ---------------------------------------button--------------------------------------- */
 
 button{
