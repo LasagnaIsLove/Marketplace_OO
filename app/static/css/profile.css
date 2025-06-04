@@ -1,23 +1,56 @@
 /* ---------------------------------------divs--------------------------------------- */
 
+main {
+    flex-direction: row;
+}
 .left-section {
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: calc(100% - 100px);
+    height: 100%;
     align-items: center;
     background-color: #f0f0f0;
+    position: fixed;
 }
 
 .right-section {
     display: flex;
     flex-direction: column;
     width: 70%;
+    margin-left: 30%;
 }
 
 .profile {
     width: 75% !important;
     height: auto !important;
+}
+
+.profile-info {
+    margin-top: 35px;
+}
+
+.profile-info-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
+}
+
+.telephone-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: start;
+}
+
+.telephone-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 /* ---------------------------------------button--------------------------------------- */
@@ -26,6 +59,35 @@
     width: 80% !important;
     margin: 10px auto;
 }
+
+.submit-button {
+    margin: 0 ;
+    margin-top: 20px;
+}
+
+.submit-button:disabled {
+    margin: 0 !important;
+    display: none;
+}
+
+.submit-button:enabled {
+    display: block;
+}
+
+.btn-edit {
+    margin-bottom: 20px;
+}
+
+.btn-edit:disabled {
+    margin: 0 !important;
+    display: none;
+}
+
+.btn-edit:enabled {
+    display: block;
+    margin-right: 12.5%;
+}
+
 
 /* ---------------------------------------text--------------------------------------- */
 
@@ -39,4 +101,49 @@ a {
 .name {
     font-size: 1.5em;
     margin-top: 0;
+}
+
+/* ---------------------------------------form--------------------------------------- */
+
+form {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    border: 0;
+    gap: 5px;
+
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(139, 191, 102, 0.5) inset;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+    width: 80%;
+    border-radius: 0 5px 5px 0;
+    margin: auto 0;
+}
+
+select {
+    width: 20%;
+    height: 50px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #3d3029;
+    padding: 0 10px;
+    font-size: 1.1em;
+    background-color: #fbfbf4;
+    color: #757575;
 }
