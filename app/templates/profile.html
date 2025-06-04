@@ -28,16 +28,95 @@
       </div>
     </header>
     <main>
-        <section class="left-section">
-            <img src="../static/img/profile.png" alt="Foto de perfil" class="profile">
-            <p class="name">{{ session["user"] }}</p>
-            <a href="/config"><button class="profile-btn">Editar perfil</button></a>
-            <a href="/history"><button class="profile-btn">Ver historico</button></a>
-            <a href="/logout"><button class="profile-btn">logout</button></a>
-        </section>
-        <section class="right-section">
-            
-        </section>
+      <section class="left-section">
+        <img
+          src="../static/img/profile.png"
+          alt="Foto de perfil"
+          class="profile"
+        />
+        <p class="name">{{ session["user"] }}</p>
+        <a href="/config"><button class="profile-btn">Editar perfil</button></a>
+        <a href="/history"
+          ><button class="profile-btn">Ver historico</button></a
+        >
+        <a href="/logout"><button class="profile-btn">logout</button></a>
+      </section>
+      <section class="right-section">
+        <div class="profile-info">
+          <form action="/change_data" method="post">
+            <fieldset id="form-field" disabled>
+              <label for="email">E-mail*</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="{{ session['email'] }}"
+                required
+              />
+              <p id="error-email" class="error"></p>
+              <label for="name">Nome*</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="{{ session['user'] }}"
+                required
+              />
+              <p id="error-name" class="error"></p>
+              <label for="code">Codigo</label>
+              <input
+                type="text"
+                id="code"
+                name="code"
+                placeholder="{{ session['code'] }}"
+                readonly
+              />
+              <label for="type">Tipo</label>
+              <input
+                type="text"
+                id="type"
+                name="type"
+                placeholder="{{ session['type'] }}"
+                readonly
+              />
+              <div class="telephone-container">
+                <label for="phone" style="margin-bottom: 10px">Telefone*</label>
+                <div class="telephone-inputs">
+                  <select name="ddd" id="ddd">
+                    <option value="">
+                      {{ session['number'].split(' ')[0] }}
+                    </option>
+                    <option value="+55">+55</option>
+                  </select>
+                  <input
+                    type="number"
+                    id="phone"
+                    name="phone"
+                    placeholder="{{ session['number'].split(' ')[1] }}"
+                    required
+                  />
+                </div>
+                <p id="error-phone" class="error"></p>
+              </div>
+              {% if error%}
+              <p class="error">{{ error }}</p>
+              {% endif %}
+              <div class="profile-info-btn">
+                <button type="submit" id="btn-submit" class="submit-button">
+                  Salvar
+                </button>
+                <button id="btn-cancel" class="submit-button" onclick="edit_toggle()">
+                  Cancelar
+                </button>
+              </div>
+            </fieldset>
+            <button type="button" onclick="edit_toggle()" id="btn-edit" class="btn-edit">
+              Editar
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
+    <script src="../static/js/profile.js"></script>
   </body>
 </html>
