@@ -41,8 +41,11 @@ def login():
         
         user = Search().search_email(email)
         if user and (password == user["password"]):
+            session["email"] = user["email"]
             session["user"] = user["name"]
+            session["number"] = user["number"]
             session["type"] = user["type"]
+            session["code"] = user["code"]
             
             return redirect(url_for("index"))
         
