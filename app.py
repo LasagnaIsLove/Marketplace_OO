@@ -67,5 +67,39 @@ def logout():
     session.clear()
     return redirect(url_for("login"))
 
+@app.route("/change_data", methods=["GET", "POST"])
+def change_data():
+    if request.method == "POST":
+        user = Search().search_email(session["email"])
+        users = Database().load("app/database/users.json")
+        
+        email = request.form.get("email")
+        name = request.form.get("name").title()
+        number = str(request.form.get("ddd")) + " " + str(request.form.get("phone"))
+        
+        try:
+            users.remove(user)
+            
+        except:
+            print("Usuario não encontrado na database, redirecionando...")
+            return redirect(url_for("login")) 
+        
+        if email != session["email"]:
+            user["email"] = email
+            session["email"] = email
+            
+        if name != session["user"]:
+            user["name"] = name
+            session["user"] = name
+            
+        if number != session["number"]:
+            user["number"] = number
+            session["number"] = number
+            
+        users.append(user)
+        Database().save(users, "app/database/users.json")
+        
+    return redirect(url_for("profile"))
+        
 if __name__ == "__main__":
     app.run(debug=True)
