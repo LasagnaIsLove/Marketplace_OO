@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../static/css/global.css" />
     <link rel="stylesheet" href="../static/css/profile.css" />
     <link rel="icon" href="../static/img/icon.ico" type="image/ico" />
-    <title>Login</title>
+    <title>Perfil</title>
   </head>
   <body>
     <header>
@@ -35,14 +35,12 @@
           class="profile"
         />
         <p class="name">{{ session["user"] }}</p>
-        <a href="/config"><button class="profile-btn">Editar perfil</button></a>
-        <a href="/history"
-          ><button class="profile-btn">Ver historico</button></a
-        >
-        <a href="/logout"><button class="profile-btn">logout</button></a>
+        <button class="profile-btn" id="btn-info">Editar perfil</button>
+        <button class="profile-btn" id="btn-history">Ver histórico</button>
+        <a href="/logout"><button class="profile-btn">Logout</button></a>
       </section>
       <section class="right-section">
-        <div class="profile-info">
+        <div id="profile-info" class="profile-info">
           <form action="/change_data" method="post">
             <fieldset id="form-field" disabled>
               <label for="email">E-mail*</label>
@@ -63,7 +61,7 @@
                 required
               />
               <p id="error-name" class="error"></p>
-              <label for="code">Codigo</label>
+              <label for="code">Código</label>
               <input
                 type="text"
                 id="code"
@@ -83,7 +81,7 @@
                 <label for="phone" style="margin-bottom: 10px">Telefone*</label>
                 <div class="telephone-inputs">
                   <select name="ddd" id="ddd">
-                    <option value="">
+                    <option value="{{ session['number'].split(' ')[0] }}">
                       {{ session['number'].split(' ')[0] }}
                     </option>
                     <option value="+55">+55</option>
@@ -98,22 +96,28 @@
                 </div>
                 <p id="error-phone" class="error"></p>
               </div>
-              {% if error%}
+              {% if error %}
               <p class="error">{{ error }}</p>
               {% endif %}
               <div class="profile-info-btn">
                 <button type="submit" id="btn-submit" class="submit-button">
                   Salvar
                 </button>
-                <button id="btn-cancel" class="submit-button" onclick="edit_toggle()">
+                <button type="button" id="btn-cancel" class="submit-button">
                   Cancelar
                 </button>
               </div>
             </fieldset>
-            <button type="button" onclick="edit_toggle()" id="btn-edit" class="btn-edit">
-              Editar
-            </button>
+            <button type="button" id="btn-edit" class="btn-edit">Editar</button>
           </form>
+        </div>
+        <div id="profile-history" class="profile-history">
+          <h2>Histórico de Atividades</h2>
+          <ul>
+            <li>01/06/2025: Atualizou foto de perfil</li>
+            <li>28/05/2025: Alterou senha</li>
+            <li>15/05/2025: Adicionou novo endereço</li>
+          </ul>
         </div>
       </section>
     </main>

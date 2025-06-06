@@ -26,9 +26,14 @@ main {
 }
 
 .profile-info {
-    margin-top: 35px;
+    margin-top: 10px;
 }
 
+.profile-history {
+    margin-top: 10px;
+    display: none;
+}
+    
 .profile-info-btn {
     display: flex;
     flex-direction: row;
@@ -67,24 +72,24 @@ main {
 
 .submit-button:disabled {
     margin: 0 !important;
-    display: none;
+    display: none !important;
 }
 
 .submit-button:enabled {
-    display: block;
+    display: block !important;
 }
 
 .btn-edit {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .btn-edit:disabled {
     margin: 0 !important;
-    display: none;
+    display: none !important;
 }
 
 .btn-edit:enabled {
-    display: block;
+    display: block !important;
     margin-right: 12.5%;
 }
 
