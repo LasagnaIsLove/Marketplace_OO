@@ -60,3 +60,36 @@ input[type="text"]:focus {
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.05) !important;
     transform: translateY(0px) !important;
 }
+
+/* ---------------------------------------text--------------------------------------- */
+
+ul {
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+li {
+    color: #fbfbf4;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    color: #fbfbf4  ;
+    
+}
+
+i {
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    color: #3d3029;
+}
+
+
