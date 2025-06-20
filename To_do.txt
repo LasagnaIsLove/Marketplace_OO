@@ -1,1 +1,5 @@
+criar classe de produtos
+criar sistema de categorias
+criar sistema de vendas
 Criar logica do historico
+finalizar index (adicionar destaques e outros produtos avulsos)
