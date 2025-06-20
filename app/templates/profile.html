@@ -27,17 +27,18 @@
         <a href="/"><button>Voltar</button></a>
       </div>
     </header>
-    <main>
+    <main id="main">
       <section class="left-section">
         <img
           src="../static/img/profile.png"
           alt="Foto de perfil"
           class="profile"
         />
-        <p class="name">{{ session["user"] }}</p>
+        <p class="name"><strong>Olá, {{ session["user"] }}</strong></p>
         <button class="profile-btn" id="btn-info">Editar perfil</button>
         <button class="profile-btn" id="btn-history">Ver histórico</button>
         <a href="/logout"><button class="profile-btn">Logout</button></a>
+        <button class="profile-btn" onclick="pop_up()">Excluir conta</button>
       </section>
       <section class="right-section">
         <div id="profile-info" class="profile-info">
@@ -121,6 +122,26 @@
         </div>
       </section>
     </main>
+    <div class="pop-up" id="pop-up">
+      <p style="margin-bottom: 0">Tem certeza que deseja excluir essa conta?</p>
+      <p style="margin-top: 0">
+        Essa ação é <strong style="color: #c10c0c">permanente</strong>!
+      </p>
+      <div class="pop-up-btns">
+        <button class="btn-pop-up" onclick="pop_up()">Cancelar</button>
+        <a href="/delete_account"
+          ><button class="btn-pop-up">Confirmar</button></a
+        >
+      </div>
+    </div>
     <script src="../static/js/profile.js"></script>
+    <script src="../static/js/confirmation.js"></script>
+    {% if history %}
+    <script>
+      window.onload = function () {
+        document.getElementById("btn-history").click();
+      };
+    </script>
+    {% endif %}
   </body>
 </html>

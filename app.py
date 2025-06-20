@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, session, request, url_for
 from app.packages.user import *
 from app.packages.utils import Search
-import re
 
 app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 app.secret_key = 'segredos são importantes'
@@ -55,12 +54,20 @@ def login():
     
     return render_template("login.html")
 
-@app.route("/profile", methods=["GET", "POST"])
+@app.route("/profile")
 def profile():
     if not "user" in session:
         return redirect(url_for("login"))
     
     return render_template("profile.html")
+
+
+@app.route("/history")
+def history():
+    if not "user" in session:
+        return redirect(url_for("login"))
+    
+    return render_template("profile.html", history=True)
 
 @app.route("/logout")
 def logout():
@@ -100,6 +107,19 @@ def change_data():
         Database().save(users, "app/database/users.json")
         
     return redirect(url_for("profile"))
+
+@app.route("/delete_account")
+def delete_account():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    
+    users = Database().load("app/database/users.json")
+    user = Search().search_email(session["email"])
+    
+    users.remove(user)
+    
+    Database().save(users, "app/database/users.json")
+    return redirect(url_for("logout"))
         
 if __name__ == "__main__":
     app.run(debug=True)
