@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/global.css" />
     <link rel="stylesheet" href="../static/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
     <link rel="icon" href="../static/img/icon.ico" type="image/ico" />
     <title>Index</title>
   </head>
@@ -46,11 +50,66 @@
         <a href="/register"><button>Cadastrar</button></a>
       </div>
       {% else %}
-      <a href="/profile"><img src="../static/img/profile.png" alt="Perfil de usuario" class="profile"></a>
+      <a href="/profile"
+        ><img
+          src="../static/img/profile.png"
+          alt="Perfil de usuario"
+          class="profile"
+      /></a>
       {% endif %}
     </header>
     <main>
-      <section></section>
+      <section>
+        <button
+          class="btn-sidebar"
+          id="btn-sidebar-open"
+          onclick="sidebar_toggle()"
+        >
+          ☰
+        </button>
+        <div class="sidebar" id="sidebar">
+          <button
+            class="btn-sidebar"
+            id="btn-sidebar-close"
+            onclick="sidebar_toggle()"
+          >
+            ✖
+          </button>
+          <ul class="sidebar-list">
+            <li>
+              <i class="fi fi-rr-star"></i
+              ><a href="" class="sidebar-link">Destaques</a>
+            </li>
+            <li>
+              <i class="fi fi-rr-list"></i
+              ><a href="" class="sidebar-link">Categorias</a>
+            </li>
+            <li>
+              <i class="fi fi-rr-coins"></i
+              ><a href="" class="sidebar-link">Vender</a>
+            </li>
+            <li>
+              <i class="fi fi-rr-user"></i
+              ><a href="/profile" class="sidebar-link">Conta</a>
+            </li>
+            <li>
+              <i class="fi fi-rr-clock"></i
+              ><a href="/history" class="sidebar-link">Historico</a>
+            </li>
+            <li>
+              <i class="fi fi-rr-info"></i>
+              <a
+                href="https://github.com/LasagnaIsLove/Marketplace_OO.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sidebar-link"
+                >Saiba mais</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
+    <script src="../static/js/sidebar.js"></script>
   </body>
 </html>
